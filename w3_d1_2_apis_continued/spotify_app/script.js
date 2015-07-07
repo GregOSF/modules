@@ -15,6 +15,7 @@ $(function() {
   		var songName = data.tracks.items[0].artists[0].name;
   		var album = data.tracks.items[0].album.name;
   		var artist = data.tracks.items[0].name;
+  		var artWork = data.tracks.items[0].album.images[0].url
   		
 
   		console.log(songName);
@@ -23,13 +24,14 @@ $(function() {
   		
 
   		var songTemplate = _.template($('#songTemp').html())
-  		var newSong = new NewTrax(songName, artist, album); 
+  		var newSong = new NewTrax(songName, artist, album, artWork); 
 
   		
-  		function NewTrax(songName, artist, album) {
+  		function NewTrax(songName, artist, album, artWork) {
   			this.songName = songName;
   			this.artist = artist;
   			this.album = album;
+  			this.artWork = artWork;
   		}
 
   		NewTrax.all = [];
